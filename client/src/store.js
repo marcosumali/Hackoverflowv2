@@ -64,7 +64,7 @@ export default new Vuex.Store({
   actions: {
     signup ({commit}, payload) {
       // console.log('from actions', payload)
-      axios.post('http://localhost:3000/users/signup', payload)
+      axios.post('http://35.187.240.68/users/signup', payload)
         .then(result => {
           // console.log(result)
           let token = result.data.token
@@ -82,7 +82,7 @@ export default new Vuex.Store({
         })
     },
     signin ({commit}, payload) {
-      axios.post('http://localhost:3000/users/signin', payload)
+      axios.post('http://35.187.240.68/users/signin', payload)
         .then(result => {
           // console.log(result)
           let token = result.data.token
@@ -102,9 +102,9 @@ export default new Vuex.Store({
         })
     },
     getQuestions ({commit}) {
-      axios.get('http://localhost:3000/questions')
+      axios.get('http://35.187.240.68/questions')
         .then(result => {
-          axios.get('http://localhost:3000/answers')
+          axios.get('http://35.187.240.68/answers')
             .then(response => {
               // console.log('questions', result.data.questions)
               // console.log('answers', response.data.answers)
@@ -137,7 +137,7 @@ export default new Vuex.Store({
       let config = {
         headers: {'authkey': token}
       }
-      axios.post('http://localhost:3000/questions/save', payload, config)
+      axios.post('http://35.187.240.68/questions/save', payload, config)
         .then(result => {
           // console.log(result)
           commit('addQuestion', result.data.question)
@@ -149,7 +149,7 @@ export default new Vuex.Store({
         })
     },
     getQuestion ({commit}, payload) {
-      let url = 'http://localhost:3000/questions/single?id=' + payload
+      let url = 'http://35.187.240.68/questions/single?id=' + payload
       // console.log(url)
       axios.get(url)
         .then(result => {
@@ -160,7 +160,7 @@ export default new Vuex.Store({
         })
     },
     upvote ({commit}, payload) {
-      let url = 'http://localhost:3000/questions/upvote?id=' + payload
+      let url = 'http://35.187.240.68/questions/upvote?id=' + payload
       let token = localStorage.getItem('authkey')
       let config = {
         headers: {'authkey': token}
@@ -179,7 +179,7 @@ export default new Vuex.Store({
         })
     },
     downvote ({commit}, payload) {
-      let url = 'http://localhost:3000/questions/downvote?id=' + payload
+      let url = 'http://35.187.240.68/questions/downvote?id=' + payload
       let token = localStorage.getItem('authkey')
       let config = {
         headers: {'authkey': token}
@@ -198,7 +198,7 @@ export default new Vuex.Store({
         })
     },
     getAnswersByQuestion ({commit}, payload) {
-      let url = 'http://localhost:3000/answers/byQuestion?id=' + payload
+      let url = 'http://35.187.240.68/answers/byQuestion?id=' + payload
       axios.get(url)
         .then(result => {
           // console.log('before', result.data.answers)
@@ -216,7 +216,7 @@ export default new Vuex.Store({
     },
     addAnswer ({commit}, payload) {
       // console.log('from actions',payload)
-      let url = 'http://localhost:3000/answers/save?id=' + payload.id
+      let url = 'http://35.187.240.68/answers/save?id=' + payload.id
       let token = localStorage.getItem('authkey')
       let config = {
         headers: {'authkey': token}
@@ -233,7 +233,7 @@ export default new Vuex.Store({
         })
     },
     upvoteAnswer ({commit}, payload) {
-      let url = 'http://localhost:3000/answers/upvote?id=' + payload
+      let url = 'http://35.187.240.68/answers/upvote?id=' + payload
       let token = localStorage.getItem('authkey')
       let config = {
         headers: {'authkey': token}
@@ -252,7 +252,7 @@ export default new Vuex.Store({
         })
     },
     downvoteAnswer ({commit}, payload) {
-      let url = 'http://localhost:3000/answers/downvote?id=' + payload
+      let url = 'http://35.187.240.68/answers/downvote?id=' + payload
       let token = localStorage.getItem('authkey')
       let config = {
         headers: {'authkey': token}
