@@ -45,8 +45,10 @@
         <ul class="sidenav" id="mobile-demo">
           <li><a><router-link :to="{ path: '/' }"><li>Questions</li></router-link></a></li>
           <hr>
-          <li><a><Register /></a></li>
-          <li><a><Login /></a></li>
+          <li><a class="waves-effect waves-light logo" style=""><router-link :to="{ path: '/mauth' }"><li>Sign Up</li></router-link></a></li>
+          <li><a class="waves-effect waves-light logo" style=""><router-link :to="{ path: '/mauth' }"><li>Sign In</li></router-link></a></li>
+          <!-- <li><a><Register /></a></li> -->
+          <!-- <li><a><Login /></a></li> -->
           <!-- <li><a href="">Sign Out</a></li> -->
         </ul>
       </div>
@@ -91,6 +93,10 @@
 hr, .answers {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.sidenav {
+  width: 160px;
 }
 
 </style>

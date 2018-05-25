@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import swal from 'sweetalert'
 // import jwt from 'jsonwebtoken'
-// import router from './router'
+import router from './router'
 
 Vue.use(Vuex)
 
@@ -71,8 +71,9 @@ export default new Vuex.Store({
           localStorage.setItem('authkey', token)
           localStorage.setItem('authStatus', true)
           // alertify.success(`Sign up successful :D`)
+          // window.location.reload()
           swal('SUCCESS', `Sign up successful :D`, 'success')
-          window.location.reload()
+          router.push('/')
         })
         .catch(err => {
           console.log('ERROR from register', err)
@@ -89,10 +90,10 @@ export default new Vuex.Store({
           localStorage.setItem('authkey', token)
           localStorage.setItem('authStatus', true)
           commit('checkAuth')
-          window.location.reload()
+          // window.location.reload()
           // alertify.success(`Sign in successful :D`)
           swal('SUCCESS', 'Sign in successful :D', 'success')
-          window.location.reload()
+          router.push('/')
         })
         .catch(err => {
           console.log('ERROR from register', err)
